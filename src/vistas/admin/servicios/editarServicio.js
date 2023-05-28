@@ -1,9 +1,8 @@
 import { Habitacion } from '../../../bd/habitacion'
-import Swal from 'sweetalert2'
 
 export default {
   template: `
-  <div class="intro-singUp">
+  <div class="intro-createService">
   <div class="container-fluid login">
       <div class="row">
           <div class="col-12">
@@ -16,30 +15,20 @@ export default {
                           <div class="login-card-header">
                               <form class="login-card-form" id="form_registro">
                                   <div class="form-item">
-                                      <label class="mt-3 form-label" for="nombre">Cama: </label>
-                                      <select class="text-center" name="select" id="cama">
-                                          <option value="1" selected>True</option>
-                                          <option value="0" >False</option>
-                                      </select>
-                                  </div>
-                                  <div class="form-item">
-                                      <label class="mt-3 form-label" for="apellidos" >Escritorio: </label>
-                                      <select class="text-center" name="select" id="escritorio">
-                                          <option value="1" selected>True</option>
-                                          <option value="0" >False</option>
-                                      </select>
-                                  </div>
-                                  <div class="form-item">
-                                      <label class="mt-3 form-label" for="apellidos" >Armario: </label>
-                                      <select class="text-center" name="select" id="armario">
-                                          <option value="1" selected>True</option>
-                                          <option value="0">False</option>        
-                                      </select>
-                                  </div>
-                                  <div class="form-item">
-                                      <label class="mt-3 form-label" for="telefono">Precio: </label>
+                                      <label class="mt-3 form-label" for="nombre">Nombre:   </label>
                                       <input 
-                                      id="precioH"
+                                        id="nombre"
+                                        type="text" 
+                                        class="form-control" 
+                                        value="" 
+                                        placeholder = "Bar" required 
+                                        />
+                                      <div class="invalid-feedback">Este campo no es correcto</div>
+                                  </div>
+                                  <div class="form-item">
+                                      <label class="mt-3 form-label" for="precio">Precio: </label>
+                                      <input 
+                                      id="precio"
                                       type="number" 
                                       class="form-control" 
                                       value="" 
@@ -48,17 +37,16 @@ export default {
                                       <div class="invalid-feedback">Este campo no es correcto</div>
                                   </div>
                                   <div class="form-item">
-                                      <label class="mt-3 form-label" for="telefono">Piso: </label>
+                                      <label class="mt-3 form-label" for="telefono">Descripcion: </label>
                                       <input 
-                                        id="pisoH"
-                                        type="text" 
-                                        class="form-control" 
-                                        value="" 
-                                        placeholder = "1" required 
-                                        />
+                                      id="descripcion"
+                                      type="text-box" 
+                                      class="form-control" 
+                                      value="" 
+                                      />
                                       <div class="invalid-feedback">Este campo no es correcto</div>
                                   </div>
-                                  <button type="submit">Crear</button>
+                                  <button type="submit">Crear Servicio</button>
                               </form>
                       </div>
                   </div>
@@ -137,22 +125,15 @@ export default {
         const habitacion = await Habitacion.update(cama, escritorio, armario, precio, piso, id)
 
         if (habitacion.length > 10) {
-          Swal.fire({
-            icon: 'info',
-            title: 'Se ha actualizado correctamente'
-          });
-          window.location.href = '/#/habitaciones'
+          alert('Habitacion actualizada con éxito')
+          window.location.href = '/#/habitacionesAdmin'
         } else {
-          let errorHTML = '';
+          const errorContainer = document.querySelector('#errores')
+          let errorHTML = ''
           for (const error of habitacion) {
-            errorHTML += `${error}\n`;
+            errorHTML += `<p>${error}</p>`
           }
-          
-          Swal.fire({
-            icon: 'error',
-            title: 'Error en logearse',
-            html: errorHTML.replace(/\n/g, '<br>')
-          });
+          errorContainer.innerHTML = errorHTML
         }
 
         // Cargamos la página login

@@ -25,6 +25,8 @@ export default {
                   <th>Eliminar</th>
               </tr>
           </thead>
+          
+          
           <tbody id="habitacion">
 
           </tbody>
@@ -66,9 +68,9 @@ export default {
         <td>${habitacion.cfPiso}</td>
         <td><button class="btn btn-info imagen" data-id="${habitacion.id}" title="Editar">Añadir Imagen
         </button></td>
-        <td><button class="btn btn-info editar" data-id="${habitacion.id}" title="Editar"><i class="bi  bi-pencil"></i>
+        <td><button class="editar btn btn-info" data-id="${habitacion.id}" title="Editar"><i class="bi  bi-pencil editar"></i>
         </button></td>
-        <td><button class="btn btn-danger eliminar" data-id="${habitacion.id}" title="Eliminar ticket"><i class="bi bi-trash3"></i>
+        <td><button class="btn btn-danger eliminar" data-id="${habitacion.id}" title="Eliminar"><i class="bi bi-trash3 eliminar"></i>
         </i>
         </button></td>`
       }

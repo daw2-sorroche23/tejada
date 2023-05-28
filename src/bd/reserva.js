@@ -3,7 +3,14 @@ export class Reserva {
   // crear registro (método static que se puede leer desde la clase sin necesidad de crear una instancia)
   static async getAll () {
     try {
-      const response = await fetch('https://api-production-3aa5.up.railway.app/reserva')
+
+      const token = localStorage.getItem('token')
+
+      const response = await fetch('https://api-production-3aa5.up.railway.app/reserva', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
       const data = await response.json()
       return data
     } catch (error) {

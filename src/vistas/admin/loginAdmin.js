@@ -106,10 +106,13 @@ export default {
                   <a class="nav-link" href="/#/servicios">Servicios</a>
               </li>
               <li class="nav-item">
-              <a class="nav-link" href="#rooms">Pisos</a>
+              <a class="nav-link" href="/#/serviciosContratados">Servicios Contratados</a>
+          </li>
+              <li class="nav-item">
+              <a class="nav-link" href="/#/pisos">Pisos</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link" href="#rooms">Reservas</a>
+          <a class="nav-link" href="/#/reservas">Reservas</a>
       </li>
       <li class="nav-item">
       <a class="nav-link" href="/#/usuarios">Usuarios</a>

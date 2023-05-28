@@ -17,14 +17,10 @@ export class Servicio {
 
   static async getAllById (id) {
     try {
-      const token = localStorage.getItem('token')
 
-      const response = await fetch(`https://api-production-3aa5.up.railway.app/servicio/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
+      const response = await fetch(`https://api-production-3aa5.up.railway.app/servicio/${id}`)
       const data = await response.json()
+      console.log(data)
       return data
     } catch (error) {
       console.log(error)

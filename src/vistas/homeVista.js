@@ -77,7 +77,7 @@ export default {
                                     <span class="service-icon">
                                     </span>
                                     <h5>Comida</h5>
-                                    <p><span>Comida </span>Pide el servicio de comida y se te llevara a tu habitacion de forma inmedita </p>
+                                    <p><span></span>Pide el servicio de comida y se te llevara a tu habitacion de forma inmedita </p>
                                 </a>
                             </li>
                             <li>
@@ -85,7 +85,7 @@ export default {
                                     <span class="service-icon">
                                     </span>
                                     <h5>Limpieza </h5>
-                                    <p><span>Limpieza</span>Servico de limpieza las 24h para lo uqe haga falta </p>
+                                    <p><span></span>Servico de limpieza las 24h para lo uqe haga falta </p>
                                 </a>
                             </li>
                             <li>
@@ -93,7 +93,7 @@ export default {
                                     <span class="service-icon">
                                     </span>
                                     <h5>Piscina</h5>
-                                    <p><span>Piscina</span>Cuento servicio de limpieza podras difrutar de esta con climatizacion  pra dias mas frios</p>
+                                    <p><span></span>Cuento servicio de limpieza podras difrutar de esta con climatizacion  pra dias mas frios</p>
                                 </a>
                             </li>
                             <li>
@@ -101,7 +101,7 @@ export default {
                                     <span class="service-icon">
                                     </span>
                                     <h5>Bar</h5>
-                                    <p><span>Bar</span> Descansa tomandote una bebida en nuestro bar despues de un dia duro </p>
+                                    <p><span></span> Descansa tomandote una bebida en nuestro bar despues de un dia duro </p>
                                 </a>
                             </li>
                         </ul>

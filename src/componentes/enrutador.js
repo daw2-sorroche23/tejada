@@ -14,9 +14,16 @@ export const enrutador = {
     nuevaHabitacion: import('../vistas/admin/habitacion/crearhabitacion.js'),
     editarHabitacion: import('../vistas/admin/habitacion/editarHabitacion.js'),
     //Servicios
+    crearServicio: import('../vistas/admin/servicios/crearServicio.js'),
     servicios: import('../vistas/admin/servicios/servicioVista.js'),
+    editarServicio: import('../vistas/admin/servicios/editarServicio.js'),
+    serviciosContratados: import('../vistas/admin/serviciosContratados/serviciosContratadosVista.js'),
     //Usuarios
     usuarios: import('../vistas/admin/usuarios/usuariosVista.js'),
+    //Pisos
+    pisos: import('../vistas/admin/pisos/pisoVista.js'),
+    //Reservas
+    reservas: import('../vistas/admin/reservas/reservaVista.js'),
     // administrador: import('../vistas/admin/adminVista.js'),
     // nuevaHabitacion: import('../vistas/admin/habitacion/crearhabitacion.js'),
     // editarHabitacion: import('../vistas/admin/habitacion/editarHabitacion.js'),

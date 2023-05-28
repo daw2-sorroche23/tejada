@@ -1,17 +1,14 @@
-
-export class User {
+export class ServicioContratado {
   // crear registro (método static que se puede leer desde la clase sin necesidad de crear una instancia)
   static async getAll () {
     try {
       const token = localStorage.getItem('token')
-
-      const response = await fetch('https://api-production-3aa5.up.railway.app/cliente', {
+      const response = await fetch('https://api-production-3aa5.up.railway.app/serviciocontratado', {
         headers: {
           Authorization: `Bearer ${token}`
         }
       })
       const data = await response.json()
-      console.log(data)
       return data
     } catch (error) {
       console.log(error)
@@ -20,7 +17,13 @@ export class User {
 
   static async getAllById (id) {
     try {
-      const response = await fetch(`https://api-production-3aa5.up.railway.app/cliente/${id}`)
+      const token = localStorage.getItem('token')
+
+      const response = await fetch(`https://api-production-3aa5.up.railway.app/servicio/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
       const data = await response.json()
       return data
     } catch (error) {
@@ -29,27 +32,28 @@ export class User {
     }
   }
 
-  static async create (nombreC, primerApellidoC, segundoApellidoC, emailC, passwordC, telefonoC, avatarC) {
+  static async create (nombreC, precioC, descriptionC) {
     try {
-      const url = 'https://api-production-3aa5.up.railway.app/cliente'
+      const token = localStorage.getItem('token')
+      const url = 'https://api-production-3aa5.up.railway.app/servicio'
       const data = {
         nombre: nombreC,
-        primerApellido: primerApellidoC,
-        segundoApellido: segundoApellidoC,
-        email: emailC,
-        password: passwordC,
-        telefono: telefonoC,
-        avatar: avatarC
+        precio: precioC,
+        description: descriptionC
       }
-      
+
+      console.log(data)
+
       const response = await fetch(url, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
         },
         body: JSON.stringify(data)
       })
       console.log(response)
+
       // Verificar el estado de la respuesta
       if (response.ok) {
         // La solicitud fue exitosa
@@ -67,7 +71,7 @@ export class User {
 
   static async delete (id) {
     try {
-      const url = `https://api-production-3aa5.up.railway.app/cliente/${id}`
+      const url = `https://api-production-3aa5.up.railway.app/servicio/${id}`
       const token = localStorage.getItem('token')
       const response = await fetch(url, {
         method: 'DELETE',
@@ -76,63 +80,37 @@ export class User {
         }
       })
 
-      console.log(response)
+      // Verificar el estado de la respuesta
+      if (response.ok) {
+        // La solicitud fue exitosa
+        console.log('El recurso se eliminó correctamente')
+      } else {
+        // Ocurrió un error en la solicitud
+        console.error('Error en la solicitud:', response)
+      }
     } catch (error) {
       console.error('Error en la solicitud:', error)
       return error
     }
   }
 
-  static async login (emailc, passwordc) {
+  static async update (camaC, escritorioC, armarioC, precioC, cfPisoC, id) {
     try {
-      console.log("dasoiuhd")
-      const url = 'https://api-production-3aa5.up.railway.app/cliente/login/'
-      const data = {
-        email: emailc,
-        contrasenya: passwordc
-      }
-      console.log(data)
-
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          
-        },
-        body: JSON.stringify(data)
-      })
-
-      console.log(response)
-      // La solicitud fue exitosa
-      const responseData = await response.json()
-
-      return responseData
-    } catch (error) {
-      console.error('Error en la solicitud:', error)
-      return error
-    }
-  }
-
-  static async update (nombreU, primerApellidoU, segundoApellidoU, emailU, passwordU, telefonoU, avatarU, id) {
-    try {
-      const url = `https://api-production-3aa5.up.railway.app/cliente/${id}`
-      const data = {
-        nombre: nombreU,
-        primerApellido: primerApellidoU,
-        segundoApellido: segundoApellidoU,
-        email: emailU,
-        password: passwordU,
-        telefono: telefonoU,
-        avatar: avatarU
-      }
+      const url = `https://api-production-3aa5.up.railway.app/habitacion/${id}`
       const token = localStorage.getItem('token')
+      const data = {
+        cama: parseInt(camaC),
+        escritorio: parseInt(escritorioC),
+        armario: parseInt(armarioC),
+        precio: parseInt(precioC),
+        cfPiso: cfPisoC,
+        Authorization: `Bearer ${token}`
+      }
 
       const response = await fetch(url, {
         method: 'PUT',
         headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-          
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
       })

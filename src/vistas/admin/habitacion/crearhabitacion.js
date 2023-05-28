@@ -82,8 +82,11 @@ export default {
         const habitacion = await Habitacion.create(selectCama, selectEscritorio, selectArmario, precio, piso)
 
         if (habitacion.length > 10) {
-          alert('Habitacion creada con éxito')
-          window.location.href = '/#/habitacionesAdmin'
+          Swal.fire({
+            icon: 'info',
+            title: 'Se ha creado correctamente'
+          });
+          window.location.href = '/#/habitaciones'
         } else {
           let errorHTML = '';
           for (const error of habitacion) {
@@ -92,7 +95,7 @@ export default {
           
           Swal.fire({
             icon: 'error',
-            title: 'Error en logearse',
+            title: 'Error en crear la habitacion',
             html: errorHTML.replace(/\n/g, '<br>')
           });
         }

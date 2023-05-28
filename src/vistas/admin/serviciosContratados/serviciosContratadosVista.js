@@ -1,58 +1,55 @@
-
-import { User } from '../../../bd/user'
+import { Servicio } from '../../../bd/servicio'
 import Swal from 'sweetalert2'
+import { ServicioContratado } from '../../../bd/serviciosContratados'
+import { User } from '../../../bd/user'
 
 export default {
   template: `
   <div class="crud-intro">
   <section class="crud-card">
       <h1>Panel de control</h1>
-      <h2 class="mt-5">Usuarios</h2>
+      <h2 class="mt-5">Servicios Contratados</h2>
       <table class="table mt-4">
           <thead>
               <tr>
                   <th>Codigo</th>
-                  <th>Nombre</th>
-                  <th>Primer Apellido</th>
-                  <th>Segundo Apellido</th>
-                  <th>Email</th>
-                  <th>Telefono</th>
-                  <th>Avatar</th>
-                  <th>Eliminar</th>
+                  <th>Tiempo Inicio</th>
+                  <th>Tiempo Final</th>
+                  <th>Cliente</th>
+                  <th>Servicio</th>
+                  <th>Precio Total</th>
+                  <th>Estado</th>
               </tr>
           </thead>
-          <tbody id="usuarios">
+          <tbody id="servicios">
 
           </tbody>
       </table>
   </section>
 </div>
-  
   `,
   script: async () => {
-    const tbody = document.querySelector('#usuarios')
+    const tbody = document.querySelector('#servicios')
 
-    const usuarios = await User.getAll()
-    if(usuarios.mensaje){
-      console.log(usuarios.mensaje)
+    const servicios = await ServicioContratado.getAll()
+    if(servicios.mensaje){
+      console.log(servicios.mensaje)
     }
-    
+
     let tabla = ''
-    for (const usuario of usuarios) {
+    for (const servicio of servicios) {
+      const nombreCliente = await User.getAllById(servicio.cfCliente)
+      const nombreServicio = await Servicio.getAllById(servicio.cfServicio)
       tabla += `
-      <tr id="${usuario.id}">
-      <td>${usuario.id}</td>
-      <td>${usuario.nombre}</td>
-      <td>${usuario.primerApellido}</td>
-      <td>${usuario.segundoApellido}</td>
-      <td>${usuario.email}</td>
-      <td>${usuario.telefono}</td>
-      <td>${usuario.avatar}</td>
-      <td><button class="btn btn-danger eliminar" data-id="${usuario.id}" title="Eliminar"><i class="eliminar bi bi-trash3"></i>
-      </i>
-      </button></td>`
+      <tr id="${servicio.id}">
+      <td>${servicio.id}</td>
+      <td>${servicio.tiempoInicio}</td>
+      <td>${servicio.tiempoFinal}</td>
+      <td>${nombreCliente.nombre}</td>
+      <td>${nombreServicio.nombre}</td>
+      <td>${servicio.precioTotal}</td>
+      <td>${servicio.estado}</td>`
     }
-
     tbody.innerHTML = tabla
 
     const main = document.querySelector('main')
@@ -69,7 +66,7 @@ export default {
         
         if (seguro.isConfirmed) {
           const id = e.target.dataset.id;
-          const errores = await User.delete(id);
+          const errores = await Servicio.delete(id);
           if (!errores) {
             console.log(errores);
           }
@@ -84,6 +81,10 @@ export default {
       }
       if (e.target.classList.contains('crear')) {
         window.location = '/#/crearServicio'
+      }
+      if (e.target.classList.contains('editar')) {
+        const id = e.target.dataset.id;
+        window.location = `/#/editarServicio/${id}`
       }
     })
   }
