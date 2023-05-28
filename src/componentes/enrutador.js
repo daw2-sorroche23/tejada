@@ -7,6 +7,7 @@ export const enrutador = {
     // Usuarios
     registro: import('../vistas/registroVista.js'),
     login: import('../vistas/loginVista.js'),
+    editarPerfil: import('../vistas/editarPerfil.js'),
     // Admin
     admin: import('../vistas/admin/loginAdmin.js'),
     //Habitacion

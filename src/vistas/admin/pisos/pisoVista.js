@@ -53,9 +53,9 @@ export default {
       <td>${piso.wifi}</td>
       <td>${piso.aseos}</td>
       <td>${piso.sexo}</td>
-      <td><button class="btn btn-info editar" data-id="${piso.id}" title="Editar"><i class="bi bi-pencil editar"></i>
+      <td><button class="btn main-btn-crud-edit editar" data-id="${piso.id}" title="Editar"><i class="bi bi-pencil editar"></i>
       </button></td>
-      <td><button class="btn btn-danger eliminar" data-id="${piso.id}" title="Eliminar"><i class="bi bi-trash3 eliminar"></i>
+      <td><button class="btn main-btn-crud-eliminate eliminar" data-id="${piso.id}" title="Eliminar"><i class="bi bi-trash3 eliminar"></i>
       </i>
       </button></td>`
     }

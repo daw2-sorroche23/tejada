@@ -85,7 +85,7 @@ export default {
                                     <span class="service-icon">
                                     </span>
                                     <h5>Limpieza </h5>
-                                    <p><span></span>Servico de limpieza las 24h para lo uqe haga falta </p>
+                                    <p><span></span>Servico de limpieza las 24h para lo que haga falta </p>
                                 </a>
                             </li>
                             <li>
@@ -93,7 +93,7 @@ export default {
                                     <span class="service-icon">
                                     </span>
                                     <h5>Piscina</h5>
-                                    <p><span></span>Cuento servicio de limpieza podras difrutar de esta con climatizacion  pra dias mas frios</p>
+                                    <p><span></span>Podras difrutar de las piscinas en los dias soleados</p>
                                 </a>
                             </li>
                             <li>
@@ -101,7 +101,7 @@ export default {
                                     <span class="service-icon">
                                     </span>
                                     <h5>Bar</h5>
-                                    <p><span></span> Descansa tomandote una bebida en nuestro bar despues de un dia duro </p>
+                                    <p><span></span>Descansa tomandote una bebida en nuestro bar</p>
                                 </a>
                             </li>
                         </ul>

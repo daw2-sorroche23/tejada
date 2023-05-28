@@ -32,6 +32,7 @@ export default {
     const tbody = document.querySelector('#servicios')
 
     const servicios = await ServicioContratado.getAll()
+    
     if(servicios.mensaje){
       console.log(servicios.mensaje)
     }

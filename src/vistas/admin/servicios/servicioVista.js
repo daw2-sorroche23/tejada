@@ -42,9 +42,9 @@ export default {
       <td>${servicio.nombre}</td>
       <td>${servicio.precio}</td>
       <td>${servicio.description}</td>
-      <td><button class="btn btn-info editar" data-id="${servicio.id}" title="Editar"><i class="bi  bi-pencil editar"></i>
+      <td><button class="btn main-btn-crud-edit editar" data-id="${servicio.id}" title="Editar"><i class="bi  bi-pencil editar"></i>
       </button></td>
-      <td><button class="btn btn-danger eliminar" data-id="${servicio.id}" title="Eliminar"><i class="bi bi-trash3 eliminar"></i>
+      <td><button class="btn main-btn-crud-eliminate eliminar" data-id="${servicio.id}" title="Eliminar"><i class="bi bi-trash3 eliminar"></i>
       </i>
       </button></td>`
     }

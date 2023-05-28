@@ -66,11 +66,11 @@ export default {
         <td>${habitacion.armario}</td>
         <td>${habitacion.precio}</td>
         <td>${habitacion.cfPiso}</td>
-        <td><button class="btn btn-info imagen" data-id="${habitacion.id}" title="Editar">Añadir Imagen
+        <td><button class="btn main-btn-crud-edit imagen" data-id="${habitacion.id}" title="Editar">Añadir Imagen
         </button></td>
-        <td><button class="editar btn btn-info" data-id="${habitacion.id}" title="Editar"><i class="bi  bi-pencil editar"></i>
+        <td><button class="editar btn main-btn-crud-edit" data-id="${habitacion.id}" title="Editar"><i class="bi bi-pencil editar"></i>
         </button></td>
-        <td><button class="btn btn-danger eliminar" data-id="${habitacion.id}" title="Eliminar"><i class="bi bi-trash3 eliminar"></i>
+        <td><button class="btn main-btn-crud-eliminate eliminar" data-id="${habitacion.id}" title="Eliminar"><i class="bi bi-trash3 eliminar"></i>
         </i>
         </button></td>`
       }

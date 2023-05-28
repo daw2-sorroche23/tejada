@@ -107,6 +107,9 @@ export default {
               <li class="nav-item mt-3 mt-lg-0">
               <a class="main-btn" href="#">Favoritos</a>
           </li> 
+          <li class="nav-item mt-3 mt-lg-0">
+          <a class="main-btn" href="/#/editarPerfil">Editar Perfil</a>
+      </li>
               <li class="nav-item mt-3 mt-lg-0">
                   <a class="main-btn deslogeate" href="#">Deslogearte</a>
               </li>

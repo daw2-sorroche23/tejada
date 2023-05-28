@@ -48,7 +48,7 @@ export default {
       <td>${usuario.email}</td>
       <td>${usuario.telefono}</td>
       <td>${usuario.avatar}</td>
-      <td><button class="btn btn-danger eliminar" data-id="${usuario.id}" title="Eliminar"><i class="eliminar bi bi-trash3"></i>
+      <td><button class="btn main-btn-crud-eliminate eliminar" data-id="${usuario.id}" title="Eliminar"><i class="eliminar bi bi-trash3"></i>
       </i>
       </button></td>`
     }

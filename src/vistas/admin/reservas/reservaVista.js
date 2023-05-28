@@ -45,7 +45,7 @@ export default {
       <td>${reserva.fecha_salida}</td>
       <td>${cliente.nombre}</td>
       <td>${reserva.cfHabitacion}</td>
-      <td><button class="btn btn-danger eliminarReserva" data-id="${cliente.id}" data-idt="${reserva.id}" title="Eliminar"><i class="bi bi-trash3 eliminarReserva"></i>
+      <td><button class="btn main-btn-crud-eliminate eliminarReserva" data-id="${cliente.id}" data-idt="${reserva.id}" title="Eliminar"><i class="bi bi-trash3 eliminarReserva"></i>
       </i>
       </button></td>`
     }

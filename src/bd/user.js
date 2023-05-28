@@ -113,7 +113,7 @@ export class User {
     }
   }
 
-  static async update (nombreU, primerApellidoU, segundoApellidoU, emailU, passwordU, telefonoU, avatarU, id) {
+  static async update (nombreU, primerApellidoU, segundoApellidoU, emailU, passwordU, telefonoU, id) {
     try {
       const url = `https://api-production-3aa5.up.railway.app/cliente/${id}`
       const data = {
@@ -123,7 +123,7 @@ export class User {
         email: emailU,
         password: passwordU,
         telefono: telefonoU,
-        avatar: avatarU
+        avatar: 1
       }
       const token = localStorage.getItem('token')
 
@@ -136,7 +136,7 @@ export class User {
         },
         body: JSON.stringify(data)
       })
-
+      console.log(response)
       // Verificar el estado de la respuesta
       if (response.ok) {
         // La solicitud fue exitosa
