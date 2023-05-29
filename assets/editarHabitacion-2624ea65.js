@@ -1,5 +1,5 @@
 import { H as Habitacion } from "./habitacion-03cb0866.js";
-import { S as Swal } from "./main-08c68604.js";
+import { S as Swal } from "./main-ab34b803.js";
 const editarHabitacion = {
   template: `
   <div class="intro-singUp">
@@ -119,8 +119,11 @@ const editarHabitacion = {
         const piso = pisoInput.value;
         const habitacion2 = await Habitacion.update(cama, escritorio, armario, precio, piso, id);
         if (habitacion2.length > 10) {
-          alert("Habitacion actualizada con éxito");
-          window.location.href = "/#/habitacionesAdmin";
+          Swal.fire({
+            icon: "info",
+            title: "Se ha actualizado correctamente"
+          });
+          window.location.href = "/tejada/#/habitaciones";
         } else {
           let errorHTML = "";
           for (const error of habitacion2) {

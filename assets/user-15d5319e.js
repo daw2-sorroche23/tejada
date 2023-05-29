@@ -9,6 +9,7 @@ class User {
         }
       });
       const data = await response.json();
+      console.log(data);
       return data;
     } catch (error) {
       console.log(error);
@@ -95,7 +96,7 @@ class User {
       return error;
     }
   }
-  static async update(nombreU, primerApellidoU, segundoApellidoU, emailU, passwordU, telefonoU, avatarU, id) {
+  static async update(nombreU, primerApellidoU, segundoApellidoU, emailU, passwordU, telefonoU, id) {
     try {
       const url = `https://api-production-3aa5.up.railway.app/cliente/${id}`;
       const data = {
@@ -105,7 +106,7 @@ class User {
         email: emailU,
         password: passwordU,
         telefono: telefonoU,
-        avatar: avatarU
+        avatar: 1
       };
       const token = localStorage.getItem("token");
       const response = await fetch(url, {
@@ -116,6 +117,7 @@ class User {
         },
         body: JSON.stringify(data)
       });
+      console.log(response);
       if (response.ok) {
         const responseData = await response.json();
         return responseData;

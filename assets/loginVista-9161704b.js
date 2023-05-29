@@ -1,5 +1,5 @@
-import { U as User } from "./user-6a8eb802.js";
-import { S as Swal } from "./main-08c68604.js";
+import { U as User } from "./user-15d5319e.js";
+import { S as Swal } from "./main-ab34b803.js";
 const loginVista = {
   template: `
   <div class="intro-login">
@@ -33,7 +33,7 @@ const loginVista = {
                                   <button type="submit">Sing In</button>
                               </form>
                               <div class="login-card-footer">
-                                  Don't have an acount? <a href="/#/registro">Create a free acount</a>
+                                  Don't have an acount? <a href="/teja/#/registro">Create a free acount</a>
                               </div>
                           </div>
                           <div class="login-card-social">
@@ -86,7 +86,7 @@ const loginVista = {
             const botones = document.querySelector("#botones");
             botones.innerHTML = `
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#home">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="/teja/#/home">Inicio</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="#about">Habitaciones</a>
@@ -97,11 +97,14 @@ const loginVista = {
               <li class="nav-item mt-3 mt-lg-0">
               <a class="main-btn" href="#">Favoritos</a>
           </li> 
+          <li class="nav-item mt-3 mt-lg-0">
+          <a class="main-btn" href="/teja/#/editarPerfil">Editar Perfil</a>
+      </li>
               <li class="nav-item mt-3 mt-lg-0">
                   <a class="main-btn deslogeate" href="#">Deslogearte</a>
               </li>
           `;
-            window.location = "/#/home";
+            window.location = "/teja/#/home";
           }
         } catch (error) {
           alert("No se ha podido iniciar sesión " + error);

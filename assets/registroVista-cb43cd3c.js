@@ -1,5 +1,5 @@
-import { U as User } from "./user-6a8eb802.js";
-import { S as Swal } from "./main-08c68604.js";
+import { U as User } from "./user-15d5319e.js";
+import { S as Swal } from "./main-ab34b803.js";
 const registroVista = {
   template: `
   <div class="intro-singUp">
@@ -43,7 +43,7 @@ const registroVista = {
                                             <button type="submit">Sing Up</button>
                                         </form>
                                         <div class="login-card-footer">
-                                            You have an account? <a href="#">Login</a>
+                                            You have an account? <a href="/tejada/#/login">Login</a>
                                         </div>
                                     <div class="login-card-social">
                                         <div>Other Sing-up Plataform</div>

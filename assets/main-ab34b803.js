@@ -7707,7 +7707,7 @@ const header = {
   <nav class="navbar navbar-expand-lg">
       <div class="container">
           <a class="navbar-brand" href="#">
-              <img decoding="async" src="./media/logo2.jpg" class="img-fluid logo" alt="logo">
+              <img decoding="async" src="./media/logo.svg" class="img-fluid logo" alt="logo">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -7717,7 +7717,7 @@ const header = {
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
               <ul class="navbar-nav menu-navbar-nav" id="botones">
                   <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="/#/home">Inicio</a>
+                      <a class="nav-link active" aria-current="page" href="/tejada/#/home">Inicio</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="#about">Habitaciones</a>
@@ -7726,10 +7726,10 @@ const header = {
                       <a class="nav-link" href="#rooms">Servicios</a>
                   </li>
                   <li class="nav-item mt-3 mt-lg-0">
-                      <a class="main-btn" href="/#/registro">Crear cuenta</a>
+                      <a class="main-btn" href="/tejada/#/registro">Crear cuenta</a>
                   </li>
                   <li class="nav-item mt-3 mt-lg-0">
-                      <a class="main-btn login" href="#">Logearse</a>
+                      <a class="main-btn login" href="/tejada/#/login">Logearse</a>
                   </li>
                   <li class="nav-item mt-3 mt-lg-0">
                       <a class="main-btn" href="#">Favoritos</a>
@@ -7758,6 +7758,9 @@ const header = {
         <li class="nav-item mt-3 mt-lg-0">
         <a class="main-btn" href="#">Favoritos</a>
     </li> 
+    <li class="nav-item mt-3 mt-lg-0">
+    <a class="main-btn" href="/#/editarPerfil">Editar Perfil</a>
+</li>
         <li class="nav-item mt-3 mt-lg-0">
             <a class="main-btn deslogeate" href="#">Deslogearte</a>
         </li>
@@ -7767,22 +7770,25 @@ const header = {
     if (rol) {
       botones.innerHTML = `
       <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="/#/home">Inicio</a>
+      <a class="nav-link active" aria-current="page" href="/tejada/#/home">Inicio</a>
         </li>
         <li class="nav-item">
             <a class="nav-link habitacion" href="#about">Habitaciones</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/#/servicios">Servicios</a>
+            <a class="nav-link" href="/tejada/#/servicios">Servicios</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="#rooms">Pisos</a>
+        <a class="nav-link" href="/tejada/#/serviciosContratados">Servicios Contratados</a>
+    </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/tejada/#/pisos">Pisos</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="#rooms">Reservas</a>
+    <a class="nav-link" href="/tejada/#/reservas">Reservas</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="/#/usuarios">Usuarios</a>
+<a class="nav-link" href="/tejada/#/usuarios">Usuarios</a>
 </li>
         <li class="nav-item mt-3 mt-lg-0">
             <a class="main-btn deslogeate" href="#">Deslogearte</a>
@@ -7791,10 +7797,10 @@ const header = {
     }
     header2.addEventListener("click", async (e) => {
       if (e.target.classList.contains("login")) {
-        window.location = "/#/login";
+        window.location = "/tejada/#/login";
       }
       if (e.target.classList.contains("habitacion")) {
-        window.location = "/#/habitaciones";
+        window.location = "/tejada/#/habitaciones";
       }
       if (e.target.classList.contains("deslogeate")) {
         localStorage.removeItem("id");
@@ -7808,7 +7814,7 @@ const header = {
         });
         botones.innerHTML = `
         <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/#/home">Inicio</a>
+        <a class="nav-link active" aria-current="page" href="/tejada/#/home">Inicio</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#about">Habitaciones</a>
@@ -7817,10 +7823,10 @@ const header = {
         <a class="nav-link" href="#rooms">Servicios</a>
     </li>
     <li class="nav-item mt-3 mt-lg-0">
-        <a class="main-btn registrarse" href="/#/registro">Crear cuenta</a>
+        <a class="main-btn registrarse" href="/tejada/#/registro">Crear cuenta</a>
     </li>
     <li class="nav-item mt-3 mt-lg-0">
-        <a class="main-btn login" href="#">Logearse</a>
+        <a class="main-btn login" href="/tejada/#/login">Logearse</a>
     </li>
     <li class="nav-item mt-3 mt-lg-0">
         <a class="main-btn" href="#">Favoritos</a>
@@ -7877,20 +7883,28 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
 const enrutador = {
   // Objeto (diccionario) con todas las rutas y su vista asociada
   rutas: {
-    home: __vitePreload(() => import("./homeVista-f2dcd064.js"), true ? [] : void 0, import.meta.url),
+    home: __vitePreload(() => import("./homeVista-b18f2368.js"), true ? [] : void 0, import.meta.url),
     // Usuarios
-    registro: __vitePreload(() => import("./registroVista-d2436ef3.js"), true ? ["./registroVista-d2436ef3.js","./user-6a8eb802.js"] : void 0, import.meta.url),
-    login: __vitePreload(() => import("./loginVista-7c6a2605.js"), true ? ["./loginVista-7c6a2605.js","./user-6a8eb802.js"] : void 0, import.meta.url),
+    registro: __vitePreload(() => import("./registroVista-cb43cd3c.js"), true ? ["./registroVista-cb43cd3c.js","./user-15d5319e.js"] : void 0, import.meta.url),
+    login: __vitePreload(() => import("./loginVista-9161704b.js"), true ? ["./loginVista-9161704b.js","./user-15d5319e.js"] : void 0, import.meta.url),
+    editarPerfil: __vitePreload(() => import("./editarPerfil-81f225a4.js"), true ? ["./editarPerfil-81f225a4.js","./user-15d5319e.js"] : void 0, import.meta.url),
     // Admin
-    admin: __vitePreload(() => import("./loginAdmin-7d122962.js"), true ? [] : void 0, import.meta.url),
+    admin: __vitePreload(() => import("./loginAdmin-5714580f.js"), true ? [] : void 0, import.meta.url),
     //Habitacion
-    habitaciones: __vitePreload(() => import("./habitacionVista-4b0b917b.js"), true ? ["./habitacionVista-4b0b917b.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
-    nuevaHabitacion: __vitePreload(() => import("./crearhabitacion-ce5b9d75.js"), true ? ["./crearhabitacion-ce5b9d75.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
-    editarHabitacion: __vitePreload(() => import("./editarHabitacion-f930bf8a.js"), true ? ["./editarHabitacion-f930bf8a.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
+    habitaciones: __vitePreload(() => import("./habitacionVista-31d70e53.js"), true ? ["./habitacionVista-31d70e53.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
+    nuevaHabitacion: __vitePreload(() => import("./crearhabitacion-b9dd80f5.js"), true ? ["./crearhabitacion-b9dd80f5.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
+    editarHabitacion: __vitePreload(() => import("./editarHabitacion-2624ea65.js"), true ? ["./editarHabitacion-2624ea65.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
     //Servicios
-    servicios: __vitePreload(() => import("./servicioVista-91f71c46.js"), true ? [] : void 0, import.meta.url),
+    crearServicio: __vitePreload(() => import("./crearServicio-757f75df.js"), true ? ["./crearServicio-757f75df.js","./servicio-81d28895.js"] : void 0, import.meta.url),
+    servicios: __vitePreload(() => import("./servicioVista-e74b80f3.js"), true ? ["./servicioVista-e74b80f3.js","./servicio-81d28895.js"] : void 0, import.meta.url),
+    editarServicio: __vitePreload(() => import("./editarServicio-eeb3f075.js"), true ? ["./editarServicio-eeb3f075.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
+    serviciosContratados: __vitePreload(() => import("./serviciosContratadosVista-3e4ac366.js"), true ? ["./serviciosContratadosVista-3e4ac366.js","./servicio-81d28895.js","./user-15d5319e.js"] : void 0, import.meta.url),
     //Usuarios
-    usuarios: __vitePreload(() => import("./usuariosVista-b658674c.js"), true ? ["./usuariosVista-b658674c.js","./user-6a8eb802.js"] : void 0, import.meta.url)
+    usuarios: __vitePreload(() => import("./usuariosVista-6dca0aa1.js"), true ? ["./usuariosVista-6dca0aa1.js","./user-15d5319e.js"] : void 0, import.meta.url),
+    //Pisos
+    pisos: __vitePreload(() => import("./pisoVista-c2bebade.js"), true ? [] : void 0, import.meta.url),
+    //Reservas
+    reservas: __vitePreload(() => import("./reservaVista-6eb8885a.js"), true ? ["./reservaVista-6eb8885a.js","./user-15d5319e.js"] : void 0, import.meta.url)
     // administrador: import('../vistas/admin/adminVista.js'),
     // nuevaHabitacion: import('../vistas/admin/habitacion/crearhabitacion.js'),
     // editarHabitacion: import('../vistas/admin/habitacion/editarHabitacion.js'),
@@ -7986,7 +8000,7 @@ document.querySelector("#header").innerHTML = header.template;
 header.script();
 document.querySelector("#footer").innerHTML = footer.template;
 enrutador.observadorRutas();
-window.location = "/tejada/#/home";
+window.location = "/teja/#/home";
 export {
   Swal as S
 };

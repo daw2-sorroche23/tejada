@@ -1,5 +1,5 @@
 import { H as Habitacion } from "./habitacion-03cb0866.js";
-import { S as Swal } from "./main-08c68604.js";
+import { S as Swal } from "./main-ab34b803.js";
 const crearhabitacion = {
   template: `
   <div class="intro-singUp">
@@ -78,8 +78,11 @@ const crearhabitacion = {
         const piso = document.querySelector("#pisoH").value;
         const habitacion = await Habitacion.create(selectCama, selectEscritorio, selectArmario, precio, piso);
         if (habitacion.length > 10) {
-          alert("Habitacion creada con éxito");
-          window.location.href = "/#/habitacionesAdmin";
+          Swal.fire({
+            icon: "info",
+            title: "Se ha creado correctamente"
+          });
+          window.location.href = "/tejada/#/habitaciones";
         } else {
           let errorHTML = "";
           for (const error of habitacion) {
@@ -88,7 +91,7 @@ const crearhabitacion = {
           }
           Swal.fire({
             icon: "error",
-            title: "Error en logearse",
+            title: "Error en crear la habitacion",
             html: errorHTML.replace(/\n/g, "<br>")
           });
         }

@@ -10557,7 +10557,7 @@ p {
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
-  background-image: url(./habitacionCarusel1-d1629978.jpg);
+  background-image: url(./media/habitacionCarusel1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -10848,6 +10848,61 @@ a > span {
   background-image: url(./habitacionCarusel2-831ea662.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+/* HABITACION */
+.swiper-container {
+  width: 100%;
+  height: 700px;
+}
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+/* HABITACIONES */
+.habitaciones-intro {
+  font-family: var(--primary-font);
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.card img {
+  width: 800px;
+  height: 400px;
+  object-fit: cover;
+}
+.card-content {
+  flex: 1;
+  text-align: center;
+}
+h2, .h2 {
+  margin: 0;
+  text-align: center;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.pagination button.active {
+  background-color: #666;
+  color: #fff;
 }
 /* RESPONSIVE */
 @media (max-width: 1199px) {

@@ -1,5 +1,5 @@
 import { H as Habitacion } from "./habitacion-03cb0866.js";
-import { S as Swal } from "./main-08c68604.js";
+import { S as Swal } from "./main-ab34b803.js";
 class Imagen {
   // crear registro (método static que se puede leer desde la clase sin necesidad de crear una instancia)
   static async getbyIdHabitacion(id) {
@@ -64,6 +64,8 @@ const habitacionVista = {
                   <th>Eliminar</th>
               </tr>
           </thead>
+          
+          
           <tbody id="habitacion">
 
           </tbody>
@@ -96,11 +98,11 @@ const habitacionVista = {
         <td>${habitacion.armario}</td>
         <td>${habitacion.precio}</td>
         <td>${habitacion.cfPiso}</td>
-        <td><button class="btn btn-info imagen" data-id="${habitacion.id}" title="Editar">Añadir Imagen
+        <td><button class="btn main-btn-crud-edit imagen" data-id="${habitacion.id}" title="Editar">Añadir Imagen
         </button></td>
-        <td><button class="btn btn-info editar" data-id="${habitacion.id}" title="Editar"><i class="bi  bi-pencil"></i>
+        <td><button class="editar btn main-btn-crud-edit" data-id="${habitacion.id}" title="Editar"><i class="bi bi-pencil editar"></i>
         </button></td>
-        <td><button class="btn btn-danger eliminar" data-id="${habitacion.id}" title="Eliminar ticket"><i class="bi bi-trash3"></i>
+        <td><button class="btn main-btn-crud-eliminate eliminar" data-id="${habitacion.id}" title="Eliminar"><i class="bi bi-trash3 eliminar"></i>
         </i>
         </button></td>`;
       }
@@ -131,15 +133,15 @@ const habitacionVista = {
         }
       }
       if (e.target.classList.contains("crear")) {
-        window.location = "/#/nuevaHabitacion";
+        window.location = "/tejada/#/nuevaHabitacion";
       }
       if (e.target.classList.contains("editar")) {
         const id = e.target.dataset.id;
-        window.location = `/#/editarHabitacion/${id}`;
+        window.location = `/tejada/#/editarHabitacion/${id}`;
       }
       if (e.target.classList.contains("imagen")) {
         const id = e.target.dataset.id;
-        window.location = `/#/anadirImagen/${id}`;
+        window.location = `/tejada/#/anadirImagen/${id}`;
       }
     });
   }

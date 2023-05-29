@@ -1,5 +1,5 @@
-import { U as User } from "./user-6a8eb802.js";
-import { S as Swal } from "./main-08c68604.js";
+import { U as User } from "./user-15d5319e.js";
+import { S as Swal } from "./main-ab34b803.js";
 const usuariosVista = {
   template: `
   <div class="crud-intro">
@@ -44,7 +44,7 @@ const usuariosVista = {
       <td>${usuario.email}</td>
       <td>${usuario.telefono}</td>
       <td>${usuario.avatar}</td>
-      <td><button class="btn btn-danger eliminar" data-id="${usuario.id}" title="Eliminar ticket"><i class="bi bi-trash3"></i>
+      <td><button class="btn main-btn-crud-eliminate eliminar" data-id="${usuario.id}" title="Eliminar"><i class="eliminar bi bi-trash3"></i>
       </i>
       </button></td>`;
     }
@@ -74,7 +74,7 @@ const usuariosVista = {
         }
       }
       if (e.target.classList.contains("crear")) {
-        window.location = "/#/crearServicio";
+        window.location = "/tejada/#/crearServicio";
       }
     });
   }
