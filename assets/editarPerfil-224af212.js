@@ -1,5 +1,5 @@
 import { U as User } from "./user-15d5319e.js";
-import { S as Swal } from "./main-ab34b803.js";
+import { S as Swal } from "./main-0561e979.js";
 const editarPerfil = {
   template: `
   <div class="intro-login">
@@ -94,7 +94,7 @@ const editarPerfil = {
               icon: "info",
               title: "Se ha actualizado correctamente"
             });
-            window.location.href = "/teja/#/home";
+            window.location.href = "/tejada/#/home";
           } else {
             let errorHTML = "";
             for (const error of usuarioLogeado) {

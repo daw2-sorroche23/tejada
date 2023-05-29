@@ -1,16 +1,9 @@
-import { S as Servicio } from "./servicio-81d28895.js";
-import { S as Swal } from "./main-ab34b803.js";
-import { U as User } from "./user-15d5319e.js";
-class ServicioContratado {
+import { S as Swal } from "./main-0561e979.js";
+class Piso {
   // crear registro (método static que se puede leer desde la clase sin necesidad de crear una instancia)
   static async getAll() {
     try {
-      const token = localStorage.getItem("token");
-      const response = await fetch("https://api-production-3aa5.up.railway.app/serviciocontratado", {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+      const response = await fetch("https://api-production-3aa5.up.railway.app/piso");
       const data = await response.json();
       return data;
     } catch (error) {
@@ -19,12 +12,7 @@ class ServicioContratado {
   }
   static async getAllById(id) {
     try {
-      const token = localStorage.getItem("token");
-      const response = await fetch(`https://api-production-3aa5.up.railway.app/servicio/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+      const response = await fetch(`https://api-production-3aa5.up.railway.app/piso/${id}`);
       const data = await response.json();
       return data;
     } catch (error) {
@@ -32,16 +20,18 @@ class ServicioContratado {
       return error;
     }
   }
-  static async create(nombreC, precioC, descriptionC) {
+  static async create(cocinaC, salonC, terrazaC, wifiC, aseosC, sexoC) {
     try {
       const token = localStorage.getItem("token");
-      const url = "https://api-production-3aa5.up.railway.app/servicio";
+      const url = "https://api-production-3aa5.up.railway.app/piso";
       const data = {
-        nombre: nombreC,
-        precio: precioC,
-        description: descriptionC
+        cocina: !isNaN(parseInt(cocinaC)) ? parseInt(cocinaC) : "",
+        salon: !isNaN(parseInt(salonC)) ? parseInt(salonC) : "",
+        terraza: !isNaN(parseInt(terrazaC)) ? parseInt(terrazaC) : "",
+        wifi: !isNaN(parseInt(wifiC)) ? parseInt(wifiC) : "",
+        aseos: aseosC,
+        sexo: sexoC
       };
-      console.log(data);
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -50,7 +40,6 @@ class ServicioContratado {
         },
         body: JSON.stringify(data)
       });
-      console.log(response);
       if (response.ok) {
         const responseData = await response.json();
         return responseData;
@@ -64,16 +53,15 @@ class ServicioContratado {
   }
   static async delete(id) {
     try {
-      const url = `https://api-production-3aa5.up.railway.app/servicio/${id}`;
       const token = localStorage.getItem("token");
+      const url = `https://api-production-3aa5.up.railway.app/piso/${id}`;
       const response = await fetch(url, {
         method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
+        Authorization: `Bearer ${token}`
       });
       if (response.ok) {
         console.log("El recurso se eliminó correctamente");
+        console.log(response);
       } else {
         console.error("Error en la solicitud:", response);
       }
@@ -82,22 +70,23 @@ class ServicioContratado {
       return error;
     }
   }
-  static async update(camaC, escritorioC, armarioC, precioC, cfPisoC, id) {
+  static async update(cocinaC, salonC, terrazaC, wifiC, aseosC, sexoC, id) {
     try {
-      const url = `https://api-production-3aa5.up.railway.app/habitacion/${id}`;
       const token = localStorage.getItem("token");
+      const url = `https://api-production-3aa5.up.railway.app/piso/${id}`;
       const data = {
-        cama: parseInt(camaC),
-        escritorio: parseInt(escritorioC),
-        armario: parseInt(armarioC),
-        precio: parseInt(precioC),
-        cfPiso: cfPisoC,
-        Authorization: `Bearer ${token}`
+        cocina: parseInt(cocinaC),
+        salon: parseInt(salonC),
+        terraza: parseInt(terrazaC),
+        wifi: parseInt(wifiC),
+        aseos: aseosC,
+        sexo: sexoC
       };
       const response = await fetch(url, {
         method: "PUT",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
         },
         body: JSON.stringify(data)
       });
@@ -113,50 +102,58 @@ class ServicioContratado {
     }
   }
 }
-const serviciosContratadosVista = {
+const pisoVista = {
   template: `
   <div class="crud-intro">
   <section class="crud-card">
       <h1>Panel de control</h1>
-      <h2 class="mt-5">Servicios Contratados</h2>
+      <h2 class="mt-5">Habitaciones</h2>
+      <button class="main-btn-crud crear"  title="Crear piso">Añadir</button>
       <table class="table mt-4">
           <thead>
               <tr>
                   <th>Codigo</th>
-                  <th>Tiempo Inicio</th>
-                  <th>Tiempo Final</th>
-                  <th>Cliente</th>
-                  <th>Servicio</th>
-                  <th>Precio Total</th>
-                  <th>Estado</th>
+                  <th>Cocina</th>
+                  <th>Salon</th>
+                  <th>Terraza</th>
+                  <th>Wifi</th>
+                  <th>Aseos</th>
+                  <th>Sexo</th>
+                  <th>Editar</th>
+                  <th>Eliminar</th>
               </tr>
           </thead>
-          <tbody id="servicios">
+          <tbody id="pisos">
 
           </tbody>
       </table>
   </section>
 </div>
+  
   `,
   script: async () => {
-    const tbody = document.querySelector("#servicios");
-    const servicios = await ServicioContratado.getAll();
-    if (servicios.mensaje) {
-      console.log(servicios.mensaje);
+    const tbody = document.querySelector("#pisos");
+    const pisos = await Piso.getAll();
+    const token = localStorage.getItem("token");
+    if (token === null) {
+      alert("No tienes permisos");
     }
     let tabla = "";
-    for (const servicio of servicios) {
-      const nombreCliente = await User.getAllById(servicio.cfCliente);
-      const nombreServicio = await Servicio.getAllById(servicio.cfServicio);
+    for (const piso of pisos) {
       tabla += `
-      <tr id="${servicio.id}">
-      <td>${servicio.id}</td>
-      <td>${servicio.tiempoInicio}</td>
-      <td>${servicio.tiempoFinal}</td>
-      <td>${nombreCliente.nombre}</td>
-      <td>${nombreServicio.nombre}</td>
-      <td>${servicio.precioTotal}</td>
-      <td>${servicio.estado}</td>`;
+      <tr id="${piso.id}">
+      <td>${piso.id}</td>
+      <td>${piso.cocina}</td>
+      <td>${piso.salon}</td>
+      <td>${piso.terraza}</td>
+      <td>${piso.wifi}</td>
+      <td>${piso.aseos}</td>
+      <td>${piso.sexo}</td>
+      <td><button class="btn main-btn-crud-edit editar" data-id="${piso.id}" title="Editar"><i class="bi bi-pencil editar"></i>
+      </button></td>
+      <td><button class="btn main-btn-crud-eliminate eliminar" data-id="${piso.id}" title="Eliminar"><i class="bi bi-trash3 eliminar"></i>
+      </i>
+      </button></td>`;
     }
     tbody.innerHTML = tabla;
     const main = document.querySelector("main");
@@ -171,7 +168,7 @@ const serviciosContratadosVista = {
         });
         if (seguro.isConfirmed) {
           const id = e.target.dataset.id;
-          const errores = await Servicio.delete(id);
+          const errores = await Piso.delete(id);
           if (!errores) {
             console.log(errores);
           }
@@ -184,15 +181,15 @@ const serviciosContratadosVista = {
         }
       }
       if (e.target.classList.contains("crear")) {
-        window.location = "/tejada/#/crearServicio";
+        window.location = "/tejada/#/crearPiso";
       }
       if (e.target.classList.contains("editar")) {
         const id = e.target.dataset.id;
-        window.location = `/tejada/#/editarServicio/${id}`;
+        window.location = `/tejada/#/editarPiso/${id}`;
       }
     });
   }
 };
 export {
-  serviciosContratadosVista as default
+  pisoVista as default
 };

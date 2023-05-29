@@ -1,6 +1,6 @@
 import { H as Habitacion } from "./habitacion-03cb0866.js";
-import { S as Swal } from "./main-ab34b803.js";
-const crearhabitacion = {
+import { S as Swal } from "./main-0561e979.js";
+const editarHabitacion = {
   template: `
   <div class="intro-singUp">
   <div class="container-fluid login">
@@ -67,41 +67,82 @@ const crearhabitacion = {
   </div>
 </div>
     `,
-  script: () => {
+  script: async (id) => {
+    const habitacion = await Habitacion.getAllById(id);
+    const selectCama = document.getElementById("cama");
+    if (habitacion.cama == 0) {
+      selectCama.innerHTML = `
+      <option value="1" >True</option>
+      <option value="0" selected>False</option>
+      `;
+    } else {
+      selectCama.innerHTML = `
+      <option value="1" selected>True</option>
+      <option value="0" >False</option>
+      `;
+    }
+    const selectEscritorio = document.getElementById("escritorio");
+    if (habitacion.escritorio == 0) {
+      selectEscritorio.innerHTML = `
+      <option value="1" >True</option>
+      <option value="0" selected>False</option>
+      `;
+    } else {
+      selectEscritorio.innerHTML = `
+      <option value="1" selected>True</option>
+      <option value="0" >False</option>
+      `;
+    }
+    const selectArmario = document.getElementById("armario");
+    if (habitacion.escritorio == 0) {
+      selectArmario.innerHTML = `
+      <option value="1" >True</option>
+      <option value="0" selected>False</option>
+      `;
+    } else {
+      selectArmario.innerHTML = `
+      <option value="1" selected>True</option>
+      <option value="0" >False</option>
+      `;
+    }
+    const precoInput = document.querySelector("#precioH");
+    precoInput.value = habitacion.precio;
+    const pisoInput = document.querySelector("#pisoH");
+    pisoInput.value = habitacion.cfPiso;
     document.querySelector("#form_registro").addEventListener("submit", async function(e) {
       e.preventDefault();
       try {
-        const selectCama = document.getElementById("cama").value;
-        const selectEscritorio = document.getElementById("escritorio").value;
-        const selectArmario = document.getElementById("armario").value;
-        const precio = document.querySelector("#precioH").value;
-        const piso = document.querySelector("#pisoH").value;
-        const habitacion = await Habitacion.create(selectCama, selectEscritorio, selectArmario, precio, piso);
-        if (habitacion.length > 10) {
+        const cama = selectCama.value;
+        const escritorio = selectEscritorio.value;
+        const armario = selectArmario.value;
+        const precio = precoInput.value;
+        const piso = pisoInput.value;
+        const habitacion2 = await Habitacion.update(cama, escritorio, armario, precio, piso, id);
+        if (habitacion2.length > 10) {
           Swal.fire({
             icon: "info",
-            title: "Se ha creado correctamente"
+            title: "Se ha actualizado correctamente"
           });
           window.location.href = "/tejada/#/habitaciones";
         } else {
           let errorHTML = "";
-          for (const error of habitacion) {
+          for (const error of habitacion2) {
             errorHTML += `${error}
 `;
           }
           Swal.fire({
             icon: "error",
-            title: "Error en crear la habitacion",
+            title: "Error en logearse",
             html: errorHTML.replace(/\n/g, "<br>")
           });
         }
       } catch (error) {
         console.log(error);
-        alert("Error al crear la habitacion");
+        alert("Error al crear usuario");
       }
     });
   }
 };
 export {
-  crearhabitacion as default
+  editarHabitacion as default
 };

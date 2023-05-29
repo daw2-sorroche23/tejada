@@ -1,5 +1,5 @@
 import { U as User } from "./user-15d5319e.js";
-import { S as Swal } from "./main-ab34b803.js";
+import { S as Swal } from "./main-0561e979.js";
 const registroVista = {
   template: `
   <div class="intro-singUp">
