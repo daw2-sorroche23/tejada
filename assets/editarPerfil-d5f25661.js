@@ -1,5 +1,5 @@
 import { U as User } from "./user-15d5319e.js";
-import { S as Swal } from "./main-985f7e32.js";
+import { S as Swal } from "./main-16f4a148.js";
 const editarPerfil = {
   template: `
   <div class="intro-login">
