@@ -1,47 +1,50 @@
-import { S as Servicio } from "./servicio-81d28895.js";
-import { S as Swal } from "./main-0561e979.js";
-const servicioVista = {
+import { U as User } from "./user-15d5319e.js";
+import { S as Swal } from "./main-985f7e32.js";
+const usuariosVista = {
   template: `
   <div class="crud-intro">
   <section class="crud-card">
       <h1>Panel de control</h1>
-      <h2 class="mt-5">Servicios</h2>
-      <button class="main-btn-crud crear"  title="Crear habitacion">Añadir</button>
+      <h2 class="mt-5">Usuarios</h2>
       <table class="table mt-4">
           <thead>
               <tr>
                   <th>Codigo</th>
                   <th>Nombre</th>
-                  <th>Precio</th>
-                  <th>Descripcion</th>
-                  <th>Editar</th>
+                  <th>Primer Apellido</th>
+                  <th>Segundo Apellido</th>
+                  <th>Email</th>
+                  <th>Telefono</th>
+                  <th>Avatar</th>
                   <th>Eliminar</th>
               </tr>
           </thead>
-          <tbody id="servicios">
+          <tbody id="usuarios">
 
           </tbody>
       </table>
   </section>
 </div>
+  
   `,
   script: async () => {
-    const tbody = document.querySelector("#servicios");
-    const servicios = await Servicio.getAll();
-    if (servicios.mensaje) {
-      console.log(servicios.mensaje);
+    const tbody = document.querySelector("#usuarios");
+    const usuarios = await User.getAll();
+    if (usuarios.mensaje) {
+      console.log(usuarios.mensaje);
     }
     let tabla = "";
-    for (const servicio of servicios) {
+    for (const usuario of usuarios) {
       tabla += `
-      <tr id="${servicio.id}">
-      <td>${servicio.id}</td>
-      <td>${servicio.nombre}</td>
-      <td>${servicio.precio}</td>
-      <td>${servicio.description}</td>
-      <td><button class="btn main-btn-crud-edit editar" data-id="${servicio.id}" title="Editar"><i class="bi  bi-pencil editar"></i>
-      </button></td>
-      <td><button class="btn main-btn-crud-eliminate eliminar" data-id="${servicio.id}" title="Eliminar"><i class="bi bi-trash3 eliminar"></i>
+      <tr id="${usuario.id}">
+      <td>${usuario.id}</td>
+      <td>${usuario.nombre}</td>
+      <td>${usuario.primerApellido}</td>
+      <td>${usuario.segundoApellido}</td>
+      <td>${usuario.email}</td>
+      <td>${usuario.telefono}</td>
+      <td>${usuario.avatar}</td>
+      <td><button class="btn main-btn-crud-eliminate eliminar" data-id="${usuario.id}" title="Eliminar"><i class="eliminar bi bi-trash3"></i>
       </i>
       </button></td>`;
     }
@@ -58,7 +61,7 @@ const servicioVista = {
         });
         if (seguro.isConfirmed) {
           const id = e.target.dataset.id;
-          const errores = await Servicio.delete(id);
+          const errores = await User.delete(id);
           if (!errores) {
             console.log(errores);
           }
@@ -73,13 +76,9 @@ const servicioVista = {
       if (e.target.classList.contains("crear")) {
         window.location = "/tejada/#/crearServicio";
       }
-      if (e.target.classList.contains("editar")) {
-        const id = e.target.dataset.id;
-        window.location = `/tejada/#/editarServicio/${id}`;
-      }
     });
   }
 };
 export {
-  servicioVista as default
+  usuariosVista as default
 };

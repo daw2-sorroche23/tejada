@@ -7885,26 +7885,26 @@ const enrutador = {
   rutas: {
     home: __vitePreload(() => import("./homeVista-b18f2368.js"), true ? [] : void 0, import.meta.url),
     // Usuarios
-    registro: __vitePreload(() => import("./registroVista-5f098719.js"), true ? ["./registroVista-5f098719.js","./user-15d5319e.js"] : void 0, import.meta.url),
-    login: __vitePreload(() => import("./loginVista-8d5b9851.js"), true ? ["./loginVista-8d5b9851.js","./user-15d5319e.js"] : void 0, import.meta.url),
-    editarPerfil: __vitePreload(() => import("./editarPerfil-224af212.js"), true ? ["./editarPerfil-224af212.js","./user-15d5319e.js"] : void 0, import.meta.url),
+    registro: __vitePreload(() => import("./registroVista-a21190d4.js"), true ? ["./registroVista-a21190d4.js","./user-15d5319e.js"] : void 0, import.meta.url),
+    login: __vitePreload(() => import("./loginVista-7fff3ff4.js"), true ? ["./loginVista-7fff3ff4.js","./user-15d5319e.js"] : void 0, import.meta.url),
+    editarPerfil: __vitePreload(() => import("./editarPerfil-a1791a6f.js"), true ? ["./editarPerfil-a1791a6f.js","./user-15d5319e.js"] : void 0, import.meta.url),
     // Admin
-    admin: __vitePreload(() => import("./loginAdmin-5901f7f3.js"), true ? [] : void 0, import.meta.url),
+    admin: __vitePreload(() => import("./loginAdmin-117b6ab1.js"), true ? [] : void 0, import.meta.url),
     //Habitacion
-    habitaciones: __vitePreload(() => import("./habitacionVista-9c685dab.js"), true ? ["./habitacionVista-9c685dab.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
-    nuevaHabitacion: __vitePreload(() => import("./crearhabitacion-bf2c7b38.js"), true ? ["./crearhabitacion-bf2c7b38.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
-    editarHabitacion: __vitePreload(() => import("./editarHabitacion-dc462a09.js"), true ? ["./editarHabitacion-dc462a09.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
+    habitaciones: __vitePreload(() => import("./habitacionVista-16c6f688.js"), true ? ["./habitacionVista-16c6f688.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
+    nuevaHabitacion: __vitePreload(() => import("./crearhabitacion-057bdbbd.js"), true ? ["./crearhabitacion-057bdbbd.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
+    editarHabitacion: __vitePreload(() => import("./editarHabitacion-8366d74a.js"), true ? ["./editarHabitacion-8366d74a.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
     //Servicios
-    crearServicio: __vitePreload(() => import("./crearServicio-9fc7dd66.js"), true ? ["./crearServicio-9fc7dd66.js","./servicio-81d28895.js"] : void 0, import.meta.url),
-    servicios: __vitePreload(() => import("./servicioVista-b6e73aed.js"), true ? ["./servicioVista-b6e73aed.js","./servicio-81d28895.js"] : void 0, import.meta.url),
+    crearServicio: __vitePreload(() => import("./crearServicio-d2381cba.js"), true ? ["./crearServicio-d2381cba.js","./servicio-81d28895.js"] : void 0, import.meta.url),
+    servicios: __vitePreload(() => import("./servicioVista-96b4fccd.js"), true ? ["./servicioVista-96b4fccd.js","./servicio-81d28895.js"] : void 0, import.meta.url),
     editarServicio: __vitePreload(() => import("./editarServicio-eeb3f075.js"), true ? ["./editarServicio-eeb3f075.js","./habitacion-03cb0866.js"] : void 0, import.meta.url),
-    serviciosContratados: __vitePreload(() => import("./serviciosContratadosVista-fb5e1c9a.js"), true ? ["./serviciosContratadosVista-fb5e1c9a.js","./servicio-81d28895.js","./user-15d5319e.js"] : void 0, import.meta.url),
+    serviciosContratados: __vitePreload(() => import("./serviciosContratadosVista-92d355f5.js"), true ? ["./serviciosContratadosVista-92d355f5.js","./servicio-81d28895.js","./user-15d5319e.js"] : void 0, import.meta.url),
     //Usuarios
-    usuarios: __vitePreload(() => import("./usuariosVista-1368f0e3.js"), true ? ["./usuariosVista-1368f0e3.js","./user-15d5319e.js"] : void 0, import.meta.url),
+    usuarios: __vitePreload(() => import("./usuariosVista-b697101d.js"), true ? ["./usuariosVista-b697101d.js","./user-15d5319e.js"] : void 0, import.meta.url),
     //Pisos
-    pisos: __vitePreload(() => import("./pisoVista-2e9744c3.js"), true ? [] : void 0, import.meta.url),
+    pisos: __vitePreload(() => import("./pisoVista-486a30e1.js"), true ? [] : void 0, import.meta.url),
     //Reservas
-    reservas: __vitePreload(() => import("./reservaVista-b8edbf7e.js"), true ? ["./reservaVista-b8edbf7e.js","./user-15d5319e.js"] : void 0, import.meta.url)
+    reservas: __vitePreload(() => import("./reservaVista-829d70e3.js"), true ? ["./reservaVista-829d70e3.js","./user-15d5319e.js"] : void 0, import.meta.url)
     // administrador: import('../vistas/admin/adminVista.js'),
     // nuevaHabitacion: import('../vistas/admin/habitacion/crearhabitacion.js'),
     // editarHabitacion: import('../vistas/admin/habitacion/editarHabitacion.js'),
@@ -8000,7 +8000,7 @@ document.querySelector("#header").innerHTML = header.template;
 header.script();
 document.querySelector("#footer").innerHTML = footer.template;
 enrutador.observadorRutas();
-window.location = "/teja/#/home";
+window.location = "/tejada/#/home";
 export {
   Swal as S
 };
